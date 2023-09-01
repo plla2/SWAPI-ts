@@ -1,0 +1,46 @@
+$bodyBackgroundColor: rgb(27, 25, 25);
+$bodyTextColor: #e9e9e9;
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Nanum+Gothic:wght@400;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+}
+
+body {
+  font-family: "Nanum Gothic", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: $bodyBackgroundColor;
+  color: $bodyTextColor;
+  min-width: 420px;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+input:focus {
+  outline: none;
+}
