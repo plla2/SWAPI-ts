@@ -1,15 +1,22 @@
 import "./Header.scss";
 import logo from "../../assets/logo.png";
+import Button from "../Button/Button";
 
 const Header = () => {
+  const handleOpenLogin = () => {
+    console.log("loginOpen");
+  };
+  const handleOpenSignup = () => {
+    console.log("signupOpen");
+  };
   return (
-    <div className="header">
+    <header className="header">
       <img src={logo} alt="Star Wars" />
       <div>
-        <button aria-label="log in">LOG IN</button>
-        <button aria-label="sign up">SIGN UP </button>
+        <Button open={handleOpenLogin} text={"log in"} />
+        <Button open={handleOpenSignup} text={"sign up"} />
       </div>
-    </div>
+    </header>
   );
 };
 
