@@ -24,6 +24,10 @@ body {
   min-width: 420px;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 button {
   background: none;
   color: inherit;
