@@ -1,9 +1,9 @@
-import List from "../components/List/ShipsList";
+import ShipsList from "../components/List/ShipsList";
 
 const StarShip = () => {
   return (
     <div>
-      <List />
+      <ShipsList />
     </div>
   );
 };

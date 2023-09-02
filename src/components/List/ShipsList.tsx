@@ -1,22 +1,27 @@
+import { useQuery } from "@tanstack/react-query";
+import { GetStarShips } from "../../apis/GetStarShips";
+import { IStarship } from "../../type/Types";
+
 const ShipsList = () => {
+  const { data, isLoading, error } = useQuery(["starships"], GetStarShips);
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>에러 페이지..</div>;
+
   return (
-    <div>
-      <span>starships</span>
-      <ul role="list" aria-label="starships list">
-        <li>
-          <h3>우주선1</h3>
-          <p>model 1</p>
-        </li>
-        <li>
-          <h3>우주선2</h3>
-          <p>model 2</p>
-        </li>
-        <li>
-          <h3>우주선3</h3>
-          <p>model 3</p>
-        </li>
-      </ul>
-    </div>
+    <ul>
+      {data ? (
+        data.map((starship: IStarship, index: number) => {
+          return (
+            <li key={index}>
+              <h3>{starship.name}</h3>
+              <p>{starship.model}</p>
+            </li>
+          );
+        })
+      ) : (
+        <div>데이터가 없숩니다..</div>
+      )}
+    </ul>
   );
 };
 
