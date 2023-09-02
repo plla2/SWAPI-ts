@@ -1,7 +1,13 @@
 export default {
   testEnvironment: "jest-environment-jsdom",
   transform: {
-    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      {
+        tsconfig: "tsconfig.json",
+        isolatedModules: false,
+      },
+    ],
   },
   moduleNameMapper: {
     "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/test/__mocks__/fileMock.js",
