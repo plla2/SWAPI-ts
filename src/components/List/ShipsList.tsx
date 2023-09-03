@@ -1,20 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { GetStarShips } from "../../apis/GetStarShips";
+import { Link } from "react-router-dom";
 import { IStarship } from "../../type/Types";
+import handleShipSelection from "../../util/handleShipSelection";
 
-const ShipsList = () => {
-  const { data, isLoading, error } = useQuery(["starships"], GetStarShips);
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>에러 페이지..</div>;
-
+const ShipsList = ({ starships, changeStarship, changeId }) => {
   return (
-    <ul>
-      {data ? (
-        data.map((starship: IStarship, index: number) => {
+    <ul className="list" aria-label="starships list">
+      {starships ? (
+        starships.map((starship: IStarship, index: number) => {
           return (
-            <li key={index}>
-              <h3>{starship.name}</h3>
-              <p>{starship.model}</p>
+            <li key={index} className="list__item">
+              <Link
+                onClick={(e) =>
+                  handleShipSelection(e, starships, changeStarship, changeId)
+                }
+                to={`/starships/${starship.name}`}
+              >
+                <h3>{starship.name}</h3>
+                <p>{starship.model}</p>
+              </Link>
             </li>
           );
         })
