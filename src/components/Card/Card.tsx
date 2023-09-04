@@ -1,7 +1,4 @@
-interface props {
-  text: string;
-  image: string;
-}
+import { props } from "./Type";
 
 const Card = ({ text, image }: props) => {
   return (

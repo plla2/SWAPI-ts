@@ -1,9 +1,4 @@
-import { IStarship } from "../../type/Types";
-
-interface props {
-  info: IStarship;
-  id: number;
-}
+import { props } from "./Type";
 
 const Details = ({ info, id }: props) => {
   const {
