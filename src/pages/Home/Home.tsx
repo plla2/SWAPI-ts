@@ -18,9 +18,9 @@ const Home = () => {
           </div>
         </div>
         <div className="cards__body">
-          {cardsData.map((card, index) => {
+          {cardsData.map((card) => {
             return (
-              <Link to={card.link} key={index}>
+              <Link to={card.link} key={card.id}>
                 <Card text={card.text} image={card.image} />
               </Link>
             );
