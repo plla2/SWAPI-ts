@@ -1,4 +1,7 @@
+import React from "react";
+
 export interface PropsType {
-  text: string;
+  text: React.ReactNode;
+  name: string;
   open: () => void;
 }
