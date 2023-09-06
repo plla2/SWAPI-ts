@@ -1,4 +1,5 @@
 import { props } from "./Type";
+import "./Card.scss";
 
 const Card = ({ text, image }: props) => {
   return (
