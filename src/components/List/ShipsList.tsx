@@ -1,29 +1,26 @@
 import { Link } from "react-router-dom";
 import { IStarship } from "../../type/Types";
-import handleShipSelection from "../../util/handleShipSelection";
 
-const ShipsList = ({ starships, changeStarship, changeId }) => {
+interface props {
+  list: IStarship[];
+  page: string;
+}
+
+const ShipsList = ({ list, page }: props) => {
   return (
     <ul className="list" aria-label="starships list">
-      {starships ? (
-        starships.map((starship: IStarship, index: number) => {
+      {list &&
+        page === "starships" &&
+        list.map((item, index) => {
           return (
-            <li key={index} className="list__item">
-              <Link
-                onClick={(e) =>
-                  handleShipSelection(e, starships, changeStarship, changeId)
-                }
-                to={`/starships/${starship.name}`}
-              >
-                <h3>{starship.name}</h3>
-                <p>{starship.model}</p>
-              </Link>
-            </li>
+            <Link key={index} to={`/starships/${item.url.match(/[0-9]+/)}`}>
+              <li>
+                <h3>{item.name}</h3>
+                <p>{item.model}</p>
+              </li>
+            </Link>
           );
-        })
-      ) : (
-        <div>데이터가 없숩니다..</div>
-      )}
+        })}
     </ul>
   );
 };
