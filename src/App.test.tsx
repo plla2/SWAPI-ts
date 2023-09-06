@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
-import StarShip from "./pages/StarShip";
+import StarShip from "./pages/StarShips/StarShip";
 import Home from "./pages/Home/Home";
 import Actors from "./pages/Actors";
 import React from "react";

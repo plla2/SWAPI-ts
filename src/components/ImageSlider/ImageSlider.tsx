@@ -7,7 +7,7 @@ import "./ImageSlider.scss";
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState<number>(0);
-  const intervalSlider = useRef<number | null>(null);
+  const intervalSlider = useRef<number | null>(0);
 
   const cardSlide = (slide: number) => {
     setCurrent(slide);
@@ -21,20 +21,12 @@ const ImageSlider = () => {
     setCurrent((current) =>
       current === 0 ? ImageSlide.length - 1 : current - 1
     );
-    if (intervalSlider.current) {
-      clearInterval(intervalSlider.current);
-      intervalSlider.current = null;
-    }
   };
 
   const nextSlide = () => {
     setCurrent((current) =>
       current === ImageSlide.length - 1 ? 0 : current + 1
     );
-    if (intervalSlider.current) {
-      clearInterval(intervalSlider.current);
-      intervalSlider.current = null;
-    }
   };
 
   useEffect(() => {
@@ -49,7 +41,7 @@ const ImageSlider = () => {
         intervalSlider.current = null;
       }
     };
-  }, []);
+  }, [current]);
 
   useEffect(() => {
     const allImages = document.querySelectorAll(
