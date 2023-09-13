@@ -1,18 +1,19 @@
-import githubIcon from "../../assets/Icons/logo-github.svg";
+import githubIcon from "../../assets/Icons/github.svg";
 import blogIcon from "../../assets/Icons/newspaper-outline.svg";
+import "./Social.scss";
 
 const Social = () => {
   return (
-    <div>
-      <ul>
-        <li>
+    <div className="social">
+      <ul className="social_links">
+        <li className="social_icon">
           <a href="https://github.com/plla2">
-            <img src={githubIcon} alt="" />
+            <img className="iconImg" src={githubIcon} alt="" />
           </a>
         </li>
-        <li>
+        <li className="social_icon">
           <a href="https://jhbljs92.tistory.com/">
-            <img src={blogIcon} alt="" />
+            <img className="iconImg" src={blogIcon} alt="" />
           </a>
         </li>
       </ul>
