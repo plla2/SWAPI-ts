@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { IStarship } from "../../type/Types";
+import handleShipSelection from "../../util/handleShipSelection";
 
 interface props {
   list: IStarship[];
@@ -13,7 +14,13 @@ const ShipsList = ({ list, page }: props) => {
         page === "starships" &&
         list.map((item, index) => {
           return (
-            <Link key={index} to={`/starships/${item.url.match(/[0-9]+/)}`}>
+            <Link
+              key={index}
+              to={`/starships/${item.url.match(/[0-9]+/)}`}
+              onClick={(e) =>
+                handleShipSelection(e, list, changeStarship, changeId)
+              }
+            >
               <li>
                 <h3>{item.name}</h3>
                 <p>{item.model}</p>
