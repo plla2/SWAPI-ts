@@ -4,10 +4,14 @@ import Social from "../Social/Social";
 
 const Header = () => {
   return (
-    <header className="header">
-      <Social />
-      <img src={logo} alt="Star Wars" />
-    </header>
+    <div className="container">
+      <header className="header">
+        <Social />
+        <a href="/">
+          <img src={logo} alt="Star Wars" />
+        </a>
+      </header>
+    </div>
   );
 };
 
